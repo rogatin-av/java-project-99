@@ -1,7 +1,7 @@
 clean:
 	./gradlew clean
 run:
-	./gradlew bootRun
+	./gradlew run
 build:
 	./gradlew clean build
 install:
