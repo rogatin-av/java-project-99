@@ -22,6 +22,14 @@ repositories {
 	mavenCentral()
 }
 
+sonar {
+	properties {
+		property("sonar.projectKey", "rogatin-av_java-project-99")
+		property("sonar.organization", "rogatin-av")
+		property("sonar.host.url", "https://sonarcloud.io")
+	}
+}
+
 
 val sentryToken = System.getenv("SENTRY_AUTH_TOKEN") ?: "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"
 
