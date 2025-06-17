@@ -42,6 +42,21 @@ sentry {
 	authToken = sentryToken
 }
 
+tasks.withType<JavaExec>().configureEach {
+	systemProperty("SENTRY_AUTH_TOKEN", System.getProperty("SENTRY_AUTH_TOKEN"))
+}
+
+application {
+	mainClass.set("hexlet.code.AppApplication")
+}
+
+tasks.jacocoTestReport {
+	reports {
+		xml.required.set(true)
+	}
+}
+
+
 dependencies {
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.8")
 	implementation("org.springframework.boot:spring-boot-configuration-processor")
