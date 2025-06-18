@@ -4,7 +4,7 @@ plugins {
 	jacoco
 	id("org.springframework.boot") version "3.5.0"
 	id("io.spring.dependency-management") version "1.1.7"
-	id("io.freefair.lombok") version "8.13"
+	id("io.freefair.lombok") version "8.6"
 	id("org.sonarqube") version "6.2.0.5505"
 	id("io.sentry.jvm.gradle") version "5.7.0"
 }
@@ -12,15 +12,6 @@ plugins {
 group = "hexlet.code"
 version = "0.0.1-SNAPSHOT"
 
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
-}
-
-repositories {
-	mavenCentral()
-}
 
 sonar {
 	properties {
@@ -29,7 +20,6 @@ sonar {
 		property("sonar.host.url", "https://sonarcloud.io")
 	}
 }
-
 
 val sentryToken = System.getenv("SENTRY_AUTH_TOKEN") ?: "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"
 
@@ -54,6 +44,16 @@ tasks.jacocoTestReport {
 	reports {
 		xml.required.set(true)
 	}
+}
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
 }
 
 
